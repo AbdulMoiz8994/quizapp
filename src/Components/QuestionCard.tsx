@@ -19,13 +19,13 @@ export const QuestionCard: React.FC<props> = ({questions,answers,callback,userAn
             </p>
             <div>
                 {answers.map((answer) =>{
-                    // return(
-                    <div>
-                 <button disabled={userAnswer} onClick={callback}>
+                    return(
+                    <div key={answer}>
+                 <button disabled={userAnswer} onClick={callback} value={answer}>
                      <span dangerouslySetInnerHTML={{__html: answer}}/>
                  </button>
                     </div>
-                    // )
+                    )
                 })}
             </div>
         </div>

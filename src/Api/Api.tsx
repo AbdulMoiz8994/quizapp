@@ -2,7 +2,7 @@
 import {SuffleArray} from '../Suffle/Suffle'
 // import axios from 'axios';
 // import  React from 'react';
-import {Question,QuestionData} from "../Types/Types";
+import {Question} from "../Types/Types";
 
 
 export type QuestionState= Question & {answers: string[]}

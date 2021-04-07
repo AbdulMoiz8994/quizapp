@@ -7,22 +7,17 @@ import {QuestionCard} from './Components/QuestionCard'
 import {QuestionState,FetchApi} from './Api/Api'
 //This is difficulty level which we made and import from Api
 import {Difficulty} from './Api/Api'
-
+import {AnswersObject} from './Types/Types'
 function App() {
 
 
 const TOTAL_QUESTIONS=10  
 
-type Answers={
-    question: string;
-    answer: string;
-    correct: boolean;
-    correctAnswer: string;
-}
+
 
 const [loading,setLoading]=useState(false)
 const [questions,setQuestions]=useState<QuestionState[]>([])
-const[userAnswer,setUserAnswer]=useState<Answers[]>([])
+const[userAnswer,setUserAnswer]=useState<AnswersObject[]>([])
 const [number,setNumber]=useState(0);
 const[score,setScore]=useState(0);
 const [gameOver,setGameOver]=useState(true)
@@ -67,6 +62,14 @@ setLoading(false);
   } 
 
    const nextQuestion=() =>{
+//this  function is for next question till last question
+
+   const nextQuestion=number +1;
+   if(nextQuestion === TOTAL_QUESTIONS){
+       setGameOver(true)
+   } else{
+     setNumber(nextQuestion)
+   }
 
    }
 

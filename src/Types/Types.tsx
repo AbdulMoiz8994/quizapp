@@ -9,6 +9,12 @@ export type Question={
     type: string;
     question: string
 }
+export type AnswersObject={
+    question: string;
+    answer: string;
+    correct: boolean;
+    correctAnswer: string;
+}
 
 export type QuestionData={
     question: string

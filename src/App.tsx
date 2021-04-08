@@ -8,6 +8,9 @@ import {QuestionState,FetchApi} from './Api/Api'
 //This is difficulty level which we made and import from Api
 import {Difficulty} from './Api/Api'
 import {AnswersObject} from './Types/Types'
+import {StyleComp,Wrapper } from './App.style'
+import ReactLOGO from './Images/react-quiz-logo.svg'
+
 function App() {
 
 
@@ -74,14 +77,16 @@ setLoading(false);
    }
 
   return (
-    <div>
-      <h1>React Quiz</h1>
+    <>
+    <StyleComp/>
+    <Wrapper >
+      <h1><img src={ReactLOGO} alt="React Logo"/></h1>
 {gameOver || userAnswer.length  === TOTAL_QUESTIONS ? (
-     <button onClick={startTrivia}>
+     <button onClick={startTrivia} className="start">
        Start
        </button> 
        ): null}
-     {!gameOver ? <p>Score: {score}</p> : null}
+     {!gameOver ? <p className="score">Score: {score}</p> : null}
    {loading && <p>Loading Qestions...</p>}
 
    {!gameOver && !loading && (
@@ -97,9 +102,10 @@ setLoading(false);
            
    )}
   {!gameOver && !loading && userAnswer.length === number + 1 && number  !== TOTAL_QUESTIONS - 1 ?(            
-     <button onClick={nextQuestion}>Next Question</button>  
+     <button className="next" onClick={nextQuestion}>Next Question</button>  
   ): null}
-    </div>
+    </Wrapper>
+    </>
   );
 }
 
